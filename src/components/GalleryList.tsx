@@ -3,7 +3,8 @@ import * as React from "react"
 import { jsx } from "theme-ui"
 import Img from "gatsby-image"
 import { Lightbox } from "react-modal-image"
-import useGallery from "../hooks/useGallery"
+import useGalleryList from "../hooks/useGalleryList"
+import useGallery, { Query as GalleryQuery } from "../hooks/useGallery"
 import Grid from "./Grid"
 import Tile from "./Tile"
 
@@ -22,8 +23,9 @@ const imgStyles: any = {
   },
 }
 
-const Gallery = (props: { directory: string }) => {
-  const images = useGallery(props.directory)
+const GalleryList = () => {
+  const galleries = useGalleryList()
+  const images = galleries.map(id => useGallery(id)[0])
   const [showImageIndex, setShowImageIndex] = React.useState<
     number | undefined
   >(undefined)
@@ -38,7 +40,9 @@ const Gallery = (props: { directory: string }) => {
               setShowImageIndex(index)
             }}
           >
-            <Img alt={image.name} fluid={image.fluid} {...imgStyles} />
+            <a href={galleries[index]}>
+              <Img alt={image.name} fluid={image.fluid} {...imgStyles} />
+            </a>
           </Tile>
         ))}
       </Grid>
@@ -55,4 +59,4 @@ const Gallery = (props: { directory: string }) => {
   )
 }
 
-export default Gallery
+export default GalleryList

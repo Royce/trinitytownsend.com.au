@@ -1,12 +1,13 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { FluidObject } from "gatsby-image"
 
-interface Query {
+export interface Query {
   allFile: {
     nodes: {
       id: string
       name: string
       publicURL: string
+      relativeDirectory: string
       childImageSharp: {
         fluid: FluidObject
       }
@@ -14,18 +15,19 @@ interface Query {
   }
 }
 
-const useGallery = () => {
+const useGallery = (directory: string) => {
   // TODO: Make "content/gallery" dynamic somehow..
   const data = useStaticQuery<Query>(graphql`
     query {
       allFile(
-        filter: { sourceInstanceName: { eq: "content/gallery" } }
+        filter: { sourceInstanceName: { eq: "gallery" } }
         sort: { order: ASC, fields: name }
       ) {
         nodes {
           id
           name
           publicURL
+          relativeDirectory
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -36,14 +38,14 @@ const useGallery = () => {
     }
   `)
 
-  var r = data.allFile.nodes.map(node => ({
-    ...node.childImageSharp,
-    id: node.id,
-    name: node.name,
-    publicURL: node.publicURL,
-  }))
-  console.log("useGal", r)
-  return r
+  return data.allFile.nodes
+    .filter(node => !directory || directory === node.relativeDirectory)
+    .map(node => ({
+      ...node.childImageSharp,
+      id: node.id,
+      name: node.name,
+      publicURL: node.publicURL,
+    }))
 }
 
 export default useGallery

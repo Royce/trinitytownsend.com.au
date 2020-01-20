@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Header />
-      <h2>Index</h2>
+      <h2>About</h2>
       {siteMetadata.author && <Footer />}
     </Layout>
   )
