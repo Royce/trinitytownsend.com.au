@@ -1,8 +1,23 @@
 const path = require("path")
 
-exports.createPages = ({ actions }, themeOptions) => {
+exports.createPages = async ({ actions, graphql }, themeOptions) => {
   const { createPage } = actions
   const { basePath } = themeOptions
+
+  const { data } = await graphql(`
+    query {
+      allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
+        distinct(field: relativeDirectory)
+      }
+    }
+  `)
+
+  data.allFile.distinct.forEach(dir =>
+    createPage({
+      path: `/${dir}`,
+      component: path.resolve(`${__dirname}/src/pages/gallery.tsx`),
+    })
+  )
 
   createPage({
     path: basePath || "/",
@@ -17,15 +32,5 @@ exports.createPages = ({ actions }, themeOptions) => {
   createPage({
     path: "/events",
     component: path.resolve(`${__dirname}/src/pages/list.tsx`),
-  })
-
-  createPage({
-    path: "/inside",
-    component: path.resolve(`${__dirname}/src/pages/gallery.tsx`),
-  })
-
-  createPage({
-    path: "/outside",
-    component: path.resolve(`${__dirname}/src/pages/gallery.tsx`),
   })
 }

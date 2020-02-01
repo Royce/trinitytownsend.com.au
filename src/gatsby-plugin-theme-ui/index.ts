@@ -1,19 +1,19 @@
 export default {
-  initialColorMode: "dark",
+  initialColorMode: "light",
   fonts: {
     body: '"Avenir Next", system-ui, sans-serif',
     heading: '"Avenir Next", system-ui, sans-serif',
     moonospace: "Menlo, monospace",
   },
   colors: {
-    text: "#000",
-    background: "#fff",
-    primary: "#639",
+    text: "#fff",
+    background: "#151515",
+    primary: "#A5F",
     modes: {
-      dark: {
-        text: "#fff",
-        background: "#151515",
-        primary: "#A5F",
+      light: {
+        text: "#000",
+        background: "#fff",
+        primary: "#639",
       },
     },
   },
@@ -53,4 +53,4 @@ export default {
       },
     },
   },
-};
+}
