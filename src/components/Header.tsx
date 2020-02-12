@@ -1,32 +1,44 @@
-import * as React from "react"
-import { Styled, Header as HeaderBase, useColorMode } from "theme-ui"
-import styled from "@emotion/styled"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { Link } from "gatsby"
 import useSiteMetadata from "../hooks/useSiteMetadata"
-
-const Button = styled.button<{ theme?: any }>`
-  padding: 0.4rem 0.75rem;
-  font-size: 0.875rem;
-  cursor: pointer;
-  background: none;
-  border: 1px solid ${props => props.theme.colors.primary};
-  color: ${props => props.theme.colors.primary};
-`
+import GalleryListList from "../components/GalleryListList"
+import Logo from "../components/Logo"
 
 const Header = () => {
   const siteMetadata = useSiteMetadata()
-  const [colorMode, setColorMode] = useColorMode()
 
   return (
-    <HeaderBase>
-      <Styled.h1>{siteMetadata.title}</Styled.h1>
-      <Button
-        onClick={() => {
-          setColorMode(colorMode === "light" ? "dark" : "light")
+    <header
+      sx={{
+        py: 4,
+        variant: "styles.header",
+      }}
+    >
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          mb: 3,
         }}
       >
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>{" "}
-    </HeaderBase>
+        <Link to="/" title="Home" style={{ width: "100%" }}>
+          <Logo />
+          <span
+            sx={{
+              position: "absolute",
+              width: 1,
+              height: 1,
+              overflow: "hidden",
+              top: -9999,
+            }}
+          >
+            {siteMetadata.title}
+          </span>
+        </Link>
+      </div>
+      <GalleryListList />
+    </header>
   )
 }
 
