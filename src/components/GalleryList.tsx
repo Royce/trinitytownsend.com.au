@@ -23,8 +23,8 @@ const imgStyles: any = {
   },
 }
 
-const GalleryList = () => {
-  const galleries = useGalleryList()
+const GalleryList = (props: { folder: string }) => {
+  const galleries = useGalleryList(props.folder)
   const images = galleries.map(id => useGallery(id)[0])
   const [showImageIndex, setShowImageIndex] = React.useState<
     number | undefined

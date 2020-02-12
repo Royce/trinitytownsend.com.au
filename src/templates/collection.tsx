@@ -5,13 +5,13 @@ import Footer from "../components/Footer"
 import GalleryList from "../components/GalleryList"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
-const HomePage = () => {
+const HomePage = ({ pageContext }) => {
   const siteMetadata = useSiteMetadata()
 
   return (
     <Layout>
       <Header />
-      <GalleryList />
+      <GalleryList folder={pageContext.folder} />
       {siteMetadata.author && <Footer />}
     </Layout>
   )

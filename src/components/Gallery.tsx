@@ -22,8 +22,8 @@ const imgStyles: any = {
   },
 }
 
-const Gallery = (props: { directory: string }) => {
-  const images = useGallery(props.directory)
+const Gallery = (props: { folder: string }) => {
+  const images = useGallery(props.folder)
   const [showImageIndex, setShowImageIndex] = React.useState<
     number | undefined
   >(undefined)

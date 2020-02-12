@@ -6,7 +6,11 @@ interface Query {
   }
 }
 
-const useGalleryList = (folder: string) => {
+const onlyUnique = function onlyUnique<T>(value: T, index: number, self: T[]) {
+  return self.indexOf(value) === index
+}
+
+const useGalleryListList = () => {
   const data = useStaticQuery<Query>(graphql`
     query {
       allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
@@ -15,7 +19,7 @@ const useGalleryList = (folder: string) => {
     }
   `)
 
-  return data.allFile.distinct.filter(dir => dir.startsWith(folder))
+  return data.allFile.distinct.map(dir => dir.split("/")[0]).filter(onlyUnique)
 }
 
-export default useGalleryList
+export default useGalleryListList
