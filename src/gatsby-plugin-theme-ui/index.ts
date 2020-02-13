@@ -44,6 +44,12 @@ export default {
       lineHeight: "1.2",
       fontSize: [3, 4, 5],
     },
+    navlink: {
+      textTransform: "uppercase",
+      textDecoration: "none",
+      color: "primary",
+      m: 2,
+    },
     a: {
       color: "text",
       marginLeft: "1rem",

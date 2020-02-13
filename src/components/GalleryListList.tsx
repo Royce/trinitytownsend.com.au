@@ -2,6 +2,7 @@
 import { Link } from "gatsby"
 import { jsx } from "theme-ui"
 import useGalleryListList from "../hooks/useGalleryListList"
+import Divider from "../components/Divider"
 
 const imgStyles: any = {
   css: {
@@ -28,6 +29,7 @@ const GalleryListList = () => {
         justifyContent: "center",
       }}
     >
+      <Divider type={"line"} />
       {sections.map(section => (
         <Link
           to={`/${section}`}
@@ -39,6 +41,7 @@ const GalleryListList = () => {
           {section}
         </Link>
       ))}
+      <Divider type={"line"} />
     </div>
   )
 }
