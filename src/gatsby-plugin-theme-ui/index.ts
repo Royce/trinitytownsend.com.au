@@ -9,6 +9,7 @@ export default {
     text: "#fff",
     background: "#151515",
     primary: "#A5F",
+    muted: "#888",
     modes: {
       light: {
         text: "#000",
@@ -18,9 +19,13 @@ export default {
     },
   },
   styles: {
-    Layout: {
+    root: {
       fontFamily: "body",
-      padding: "0 1rem",
+    },
+    Container: {
+      padding: 4,
+      pb: 0,
+      border: "1px solid lightgrey",
     },
     Header: {
       alignItems: "center",
@@ -28,12 +33,9 @@ export default {
       marginBottom: "1rem",
     },
     Footer: {
-      position: "fixed",
-      left: 0,
-      bottom: 0,
       width: "100%",
-      padding: "0 1.5rem",
-      backgroundColor: "background",
+      padding: 1,
+      mt: 4,
       fontSize: 1,
       alignItems: "center",
       justifyContent: "space-between",

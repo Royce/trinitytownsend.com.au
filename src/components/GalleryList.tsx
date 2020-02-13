@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import * as React from "react"
 import { jsx } from "theme-ui"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { Lightbox } from "react-modal-image"
 import useGalleryList from "../hooks/useGalleryList"
-import useGallery, { Query as GalleryQuery } from "../hooks/useGallery"
+import useGallery from "../hooks/useGallery"
 import Grid from "./Grid"
 import Tile from "./Tile"
 
@@ -26,35 +25,18 @@ const imgStyles: any = {
 const GalleryList = (props: { folder: string }) => {
   const galleries = useGalleryList(props.folder)
   const images = galleries.map(id => useGallery(id)[0])
-  const [showImageIndex, setShowImageIndex] = React.useState<
-    number | undefined
-  >(undefined)
 
   return (
     <div>
       <Grid>
         {images.map((image, index) => (
-          <Tile
-            key={image.id}
-            onClick={() => {
-              setShowImageIndex(index)
-            }}
-          >
-            <a href={galleries[index]}>
+          <Tile key={image.id}>
+            <Link to={galleries[index]}>
               <Img alt={image.name} fluid={image.fluid} {...imgStyles} />
-            </a>
+            </Link>
           </Tile>
         ))}
       </Grid>
-      {showImageIndex !== undefined && (
-        <Lightbox
-          hideDownload={true}
-          large={images[showImageIndex].publicURL}
-          onClose={() => {
-            setShowImageIndex(undefined)
-          }}
-        />
-      )}
     </div>
   )
 }

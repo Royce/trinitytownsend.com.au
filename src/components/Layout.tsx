@@ -1,11 +1,12 @@
-import * as React from "react"
+/** @jsx jsx */
+import { jsx, Container } from "theme-ui"
 import GlobalStyles from "./GlobalStyles"
 
 const Layout: React.FunctionComponent<{}> = ({ children }) => (
-  <div>
+  <Container>
     <GlobalStyles />
     {children}
-  </div>
+  </Container>
 )
 
 export default Layout
