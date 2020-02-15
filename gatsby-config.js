@@ -5,6 +5,10 @@ module.exports = {
     author: `Trinity Townsend`,
     social: [
       {
+        name: "Instagram",
+        url: "http://instagram.com/trinitytownsendphotography",
+      },
+      {
         name: "Twitter",
         url: "https://twitter.com/trinlovesfrogs",
       },
