@@ -32,7 +32,7 @@ const Header = () => {
         <Box sx={{ textAlign: "center", flex: "1 1 auto" }}>
           WESTERN AUSTRALIA
         </Box>
-        <Box>0404044044</Box>
+        <Box>0424299811</Box>
       </Flex>
       <GalleryListList />
     </header>

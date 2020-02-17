@@ -20,13 +20,13 @@ const Footer = () => {
   return (
     <FooterBase>
       <p>{`© ${new Date().getFullYear()} ${siteMetadata.author}`}</p>
-      <Button
+      {/* <Button
         onClick={() => {
           setColorMode(colorMode === "light" ? "dark" : "light")
         }}
       >
         Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
+      </Button> */}
 
       <SocialLinks />
     </FooterBase>
