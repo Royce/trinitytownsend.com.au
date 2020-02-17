@@ -34,6 +34,13 @@ module.exports = {
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-typescript",
     "gatsby-plugin-emotion",
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "trinitytownsend.com.au",
+        region: "ap-southeast-2",
+      },
+    },
   ],
   // plugins: [
   //   {
