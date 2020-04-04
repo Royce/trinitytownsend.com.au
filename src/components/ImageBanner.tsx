@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, Styled } from "theme-ui"
 import BackgroundImage from "gatsby-background-image"
-import styled from "@emotion/styled"
 import useImage from "../hooks/useImage"
 
 const ImageBanner = (props: { file: string; title: string }) => {
@@ -14,18 +13,16 @@ const ImageBanner = (props: { file: string; title: string }) => {
       fluid={image.fluid}
       backgroundColor={`#040e18`}
     >
-      <h1
+      <Styled.h1
         sx={{
           color: "white",
-          padding: "120px",
+          padding: ["60px", "90px", "120px"],
           textAlign: "center",
-          fontFamily: "arial, san-serif",
           textTransform: "uppercase",
-          fontSize: "48px",
         }}
       >
         {props.title}
-      </h1>
+      </Styled.h1>
     </BackgroundImage>
   )
 }

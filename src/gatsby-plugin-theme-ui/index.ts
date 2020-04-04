@@ -13,7 +13,7 @@ export default {
     modes: {
       light: {
         text: "#000",
-        background: "#fff",
+        background: "#f9ffff",
         primary: "#639",
       },
     },
@@ -22,10 +22,19 @@ export default {
     root: {
       fontFamily: "body",
     },
+    Global: {
+      "*": { boxSizing: "border-box" },
+      body: { margin: 0, padding: 0 },
+      html: { margin: 0, padding: 0 },
+    },
     Container: {
       padding: 4,
+      margin: [0, 0, 0, "40px auto"],
+      width: ["100%", "100%", "100%", "95%"],
       pb: 0,
       border: "1px solid lightgrey",
+      borderWidth: [0, 0, 0, "1px"],
+      background: "white",
     },
     Header: {
       alignItems: "center",
@@ -42,16 +51,17 @@ export default {
     },
     h1: {
       fontFamily: "heading",
-      color: "text",
+      color: "#444",
       fontWeight: 400,
       lineHeight: "1.2",
-      fontSize: [3, 4, 5],
+      fontSize: [5, 6, 7],
     },
     h2: {
       fontFamily: "heading",
-      color: "red",
+      color: "text",
       fontWeight: 400,
       lineHeight: "1.2",
+      paddingTop: [2, 2, 3],
       fontSize: [2, 3, 4],
     },
     navlink: {

@@ -1,7 +1,8 @@
 /** @jsx jsx */
 
 import { graphql } from "gatsby"
-import { jsx, Box, Flex, Heading } from "theme-ui"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import { jsx, Styled } from "theme-ui"
 import Layout from "../components/Layout"
 import ImageBanner from "../components/ImageBanner"
 import Header from "../components/Header"
@@ -10,8 +11,8 @@ import useSiteMetadata from "../hooks/useSiteMetadata"
 
 const HomePage = ({ pageContext, data }) => {
   const siteMetadata = useSiteMetadata()
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data
+  const { frontmatter, body } = mdx
 
   return (
     <Layout>
@@ -22,12 +23,9 @@ const HomePage = ({ pageContext, data }) => {
           title={frontmatter.title}
         />
       ) : (
-        <h1>{frontmatter.title}</h1>
+        <Styled.h1>{frontmatter.title}</Styled.h1>
       )}
-      <div
-        className="blog-post-content"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <MDXRenderer>{body}</MDXRenderer>
       {siteMetadata.author && <Footer />}
     </Layout>
   )
@@ -35,8 +33,8 @@ const HomePage = ({ pageContext, data }) => {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         banner {

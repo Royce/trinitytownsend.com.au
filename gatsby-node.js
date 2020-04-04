@@ -7,7 +7,7 @@ const onlyUnique = function onlyUnique(value, index, self) {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode })
     createNodeField({
       node,
@@ -26,7 +26,7 @@ exports.createPages = async ({ actions, graphql }, themeOptions) => {
       allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
         distinct(field: relativeDirectory)
       }
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             fields {
@@ -57,7 +57,7 @@ exports.createPages = async ({ actions, graphql }, themeOptions) => {
     })
   )
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
+  data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`${__dirname}/src/templates/page.tsx`),
