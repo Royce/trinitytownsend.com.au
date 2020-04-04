@@ -1,17 +1,16 @@
 /** @jsx jsx */
-import { jsx, Flex, Box } from "theme-ui"
+import { jsx, Flex, Box, Styled } from "theme-ui"
 import { Link } from "gatsby"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 import GalleryListList from "../components/GalleryListList"
 import Logo from "../components/Logo"
-import Divider from "./Divider"
 
 const Header = () => {
   const siteMetadata = useSiteMetadata()
 
   return (
     <header>
-      <div>
+      <div sx={{ mb: 3 }}>
         <Link to="/" title="Home" style={{ width: "100%" }}>
           <Logo />
           <span
@@ -27,12 +26,12 @@ const Header = () => {
           </span>
         </Link>
       </div>
-      <Flex sx={{ color: "muted" }}>
-        <Box>NORTH PERTH</Box>
-        <Box sx={{ textAlign: "center", flex: "1 1 auto" }}>
+      <Flex sx={{ color: "muted", mb: 3 }}>
+        <Styled.p as={Box}>NORTH PERTH</Styled.p>
+        <Styled.p as={Box} sx={{ textAlign: "center", flex: "1 1 auto" }}>
           WESTERN AUSTRALIA
-        </Box>
-        <Box>0424299811</Box>
+        </Styled.p>
+        <Styled.p as={Box}>0424299811</Styled.p>
       </Flex>
       <GalleryListList />
     </header>

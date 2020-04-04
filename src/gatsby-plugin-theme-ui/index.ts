@@ -8,13 +8,14 @@ export default {
   colors: {
     text: "#fff",
     background: "#151515",
-    primary: "#A5F",
+    primary: "#333",
     muted: "#888",
     modes: {
       light: {
         text: "#000",
         background: "#f9ffff",
-        primary: "#639",
+        primary: "#666",
+        muted: "#999",
       },
     },
   },
@@ -32,7 +33,7 @@ export default {
       margin: [0, 0, 0, "40px auto"],
       width: ["100%", "100%", "100%", "95%"],
       pb: 0,
-      border: "1px solid lightgrey",
+      border: "1px solid #ddd",
       borderWidth: [0, 0, 0, "1px"],
       background: "white",
     },
@@ -64,7 +65,11 @@ export default {
       paddingTop: [2, 2, 3],
       fontSize: [2, 3, 4],
     },
+    p: {
+      fontFamily: "body",
+    },
     navlink: {
+      fontFamily: "body",
       textTransform: "uppercase",
       textDecoration: "none",
       color: "primary",

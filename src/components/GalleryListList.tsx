@@ -30,17 +30,25 @@ const GalleryListList = () => {
       }}
     >
       <Divider type={"line"} />
-      {sections.map(section => (
-        <Link
-          to={`/${section}`}
-          sx={{
-            variant: "styles.navlink",
-            p: 2,
-          }}
-        >
-          {section}
-        </Link>
-      ))}
+      {sections
+        .filter(x => "" !== x)
+        .map(section => (
+          <Link
+            key={section}
+            to={`/${section}`}
+            activeClassName="active"
+            sx={{
+              variant: "styles.navlink",
+              p: 2,
+              "&.active": {
+                color: "text",
+                borderBottom: "3px solid grey",
+              },
+            }}
+          >
+            {section}
+          </Link>
+        ))}
       <Divider type={"line"} />
     </div>
   )
