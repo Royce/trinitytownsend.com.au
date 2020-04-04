@@ -19,7 +19,12 @@ const useGalleryListList = () => {
     }
   `)
 
-  return data.allFile.distinct.map(dir => dir.split("/")[0]).filter(onlyUnique)
+  return (
+    data.allFile.distinct
+      // .filter(dir => dir.split("/").length > 1)
+      .map(dir => dir.split("/")[0])
+      .filter(onlyUnique)
+  )
 }
 
 export default useGalleryListList

@@ -29,7 +29,7 @@ export default () => (
           relativeDirectory
           childImageSharp {
             fluid(maxWidth: 593) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_tracedSVG
               presentationWidth
             }
           }

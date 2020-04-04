@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
 const Grid = styled.div`
   display: grid;
@@ -10,6 +10,6 @@ const Grid = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
     grid-auto-rows: 24rem;
   }
-`;
+`
 
-export default Grid;
+export default Grid

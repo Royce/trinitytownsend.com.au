@@ -3,7 +3,7 @@ export default {
   fonts: {
     body: '"Avenir Next", system-ui, sans-serif',
     heading: '"Avenir Next", system-ui, sans-serif',
-    moonospace: "Menlo, monospace",
+    monospace: "Menlo, monospace",
   },
   colors: {
     text: "#fff",
@@ -41,10 +41,18 @@ export default {
       justifyContent: "space-between",
     },
     h1: {
+      fontFamily: "heading",
       color: "text",
       fontWeight: 400,
       lineHeight: "1.2",
       fontSize: [3, 4, 5],
+    },
+    h2: {
+      fontFamily: "heading",
+      color: "red",
+      fontWeight: 400,
+      lineHeight: "1.2",
+      fontSize: [2, 3, 4],
     },
     navlink: {
       textTransform: "uppercase",

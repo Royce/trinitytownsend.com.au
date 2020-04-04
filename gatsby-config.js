@@ -19,7 +19,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "gallery",
-        path: "content/gallery",
+        path: "content/gallery-example",
       },
     },
     {
@@ -29,6 +29,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-remark`,
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-theme-ui",
@@ -43,12 +44,6 @@ module.exports = {
     },
   ],
   // plugins: [
-  //   {
-  //     resolve: "gatsby-theme-gallery",
-  //     options: {
-  //       basePath: "/",
-  //     },
-  //   },
   //   `gatsby-plugin-react-helmet`,
   //   `gatsby-transformer-sharp`,
   //   `gatsby-plugin-sharp`,
