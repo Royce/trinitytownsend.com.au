@@ -10,10 +10,10 @@ const HomePage = () => {
   return (
     <Layout>
       <Header />
-      <h2>Hi , I'm trinity</h2>
+      <h2>Hi, I'm Trinity</h2>
       <p>
         I love to travel, make friends with dogs, drink fortified wines, spend
-        time with fun and interesting people , and photograph beautiful scenes -
+        time with fun and interesting people, and photograph beautiful scenes -
         in the following pages are some of those scenes and people.
       </p>
       {siteMetadata.author && <Footer />}
