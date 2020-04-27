@@ -27,11 +27,8 @@ const Header = () => {
         </Link>
       </div>
       <Flex sx={{ color: "muted", mb: 3 }}>
-        <Styled.p as={Box}>NORTH PERTH</Styled.p>
-        <Styled.p as={Box} sx={{ textAlign: "center", flex: "1 1 auto" }}>
-          WESTERN AUSTRALIA
-        </Styled.p>
-        <Styled.p as={Box}>0424299811</Styled.p>
+        <Styled.p as={Box} sx={{ flex: "1 1 auto" }}>Meadow Springs, Western Australia</Styled.p>
+        <Styled.p as={Box}>trinity@trinitytownsend.com.au</Styled.p>
       </Flex>
       <GalleryListList />
     </header>
